@@ -14,6 +14,7 @@ def main():
     # return render_template("user_matching.html")
     return render_user_matching()
     # return render_group()
+    # return render_group()
 
 @app.route("/profile_page.html")
 def user_profile():
@@ -150,9 +151,7 @@ def render_user_matching():
 					{0}, {1}, {2} is joining.<br>
 					<div class="row">
 				<div class="col-md-12">
-				<form action="{{ url_for('render_group') }}" method="post">
-					<button type="button submit" class="btn btn-primary btn-block">Join</button>
-				</form>
+					<button type="button submit" class="btn btn-primary btn-block" onclick="location.href='/render_group.html'">Join</button>
 				</div>
 			</div>
 				</div>
@@ -174,7 +173,10 @@ def render_user_matching():
 	output_html += groups_tail
 	return output_html
 
-@app.route('/group', methods = ['post'])
+@app.route('/render_group.html')
+def group():
+    return render_group()
+
 def render_group():
 	output_html = '''
 	<head>
