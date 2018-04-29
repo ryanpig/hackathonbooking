@@ -8,8 +8,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('profile_page.html')
+    return render_template('confirmation.html')
 
+@app.route("/profile_page.html")
+def user_profile():
+	return render_template("profile_page.html")
 
 @app.route('/no', methods = ['post'])
 def handle_data():
