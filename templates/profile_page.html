@@ -59,6 +59,7 @@
 </nav>
 
 <div class="container-fluid text-center">
+  <form action="{{ url_for('handle_data') }}" method="post">
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><a href="#">Profile</a></p>
@@ -72,7 +73,7 @@
       <hr>
       <h3>Creating profile</h3>
        <label for="usr">First Name:</label>
-	  <input type="text" class="form-control" id="usr_first">
+	  <input type="text" class="form-control" id="usr_first" value="usr_first" name="usr_first">
        <label for="usr">Home:</label>
 	  <input type="text" class="form-control" id="usr">
        <label for="usr">Language:</label>
@@ -91,16 +92,16 @@
 	  <input type="text" class="form-control" id="usr">
        <label for="usr">Most memorable & experience:</label>
 	  <input type="text" class="form-control input-lg" id="usr">
-</div>
-
-  </div>
-</div>
-
 <footer class="container-fluid text-center">
   <button type="button" onclick="myFunction()" class="btn btn-success">Save</button>
-  <button type="button" class="btn btn-info">Next</button>
+  <!-- <input type="submit" value="submot"> -->
+  <button type="button submit" class="btn btn-info">Next</button>
   <p id="demo">Debug</p>
 </footer>
+</form>
+</div>
+
+
 
 </body>
 </html>
