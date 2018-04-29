@@ -13,6 +13,8 @@ def main():
 	# flash(message)
     # return render_template("user_matching.html")
     return render_user_matching()
+    # return render_group()
+
 @app.route("/profile_page.html")
 def user_profile():
 	return render_template("profile_page.html")
@@ -120,7 +122,7 @@ def render_user_matching():
 						  	<rect width="100%" height="100%" style="fill:None;stroke-width:0;stroke:None" />
 						</svg>
 					  	<div class="form-group">
-					    <label for="exampleFormControlTextarea1">Example textarea</label>
+					    <label for="exampleFormControlTextarea1"></label>
 					    	<textarea class="form-control" rows="3" id="textarea"></textarea>
 					  	</div>
 					</form>
@@ -148,7 +150,9 @@ def render_user_matching():
 					{0}, {1}, {2} is joining.<br>
 					<div class="row">
 				<div class="col-md-12">
-					<button type="button" class="btn btn-primary btn-block">Join</button>
+				<form action="{{ url_for('render_group') }}" method="post">
+					<button type="button submit" class="btn btn-primary btn-block">Join</button>
+				</form>
 				</div>
 			</div>
 				</div>
@@ -170,6 +174,79 @@ def render_user_matching():
 	output_html += groups_tail
 	return output_html
 
+@app.route('/group', methods = ['post'])
+def render_group():
+	output_html = '''
+	<head>
+	<link rel="stylesheet" media="screen" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstr
+	apcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	</head>
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid bg-primary">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header ">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><img src="https://s-ec.bstatic.com/static/img/b26logo/booking_logo_retina/22615963add19ac6b6d715a97c8d477e8b95b7ea.png" width="150"/></a>
+	      </div>
+		</div>
+	</nav>
+		<div class="row">
+			<div class="col-md-1"
+			</div>
+			</div class="col-md-4">
+			<b>Foodies (29.04-01.05)</>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="row">
+					<button type="button" class="btn btn-primary btn-block"> Day 1</button>
+			</div>
+			<div class="row">
+				<button type="button" class="btn btn-primary btn-block"> Day 2</button>
+			</div>
+			<div class="row">
+				<button type="button" class="btn btn-primary btn-block"> Day 3</button>
+			</div>
+		</div>
+		<div class="col-md-5">
+		<img src="static/rec.png" width="600">
+		</div>
+		<div class="col-md-5">
+			<div class="row">
+				<div class="well well-lg" style="padding: 5">
+					<div class="row">
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-10" id="chat">
+						</div>
+					</div>
+
+					<form>
+					  	<svg width="400" height="170" id="svg">
+						  	<rect width="100%" height="100%" style="fill:None;stroke-width:0;stroke:None" />
+						</svg>
+					  	<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Chat with Foodies</label>
+					    	<textarea class="form-control" rows="3" id="textarea"></textarea>
+					  	</div>
+					</form>
+				</div>
+			</div>
+			<img src="https://s3.eu-west-2.amazonaws.com/troopscout/deals/hertz-car-rental-military-armed-20-discount.jpg" width="400">
+		</div>
+
+		
+	'''
+	return output_html
 
 
 
