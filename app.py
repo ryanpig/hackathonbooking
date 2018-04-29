@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
+<<<<<<< HEAD
     return render_template('profile_page.html')
 
 
@@ -17,6 +18,9 @@ def worker():
     print(request.is_json)
     content = request.get_json()
     print(content['device'])
+=======
+    return render_template('navbar.html')
+>>>>>>> 86649cf8478a067dd62b9278dbcc7d22737378fd
 
 #	data = request.get_json()
 #    result = ''
