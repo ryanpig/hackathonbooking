@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.slidecontainer {
+    width: 60%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 0.7;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 12px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+</style>
+
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid bg-primary">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="https://s-ec.bstatic.com/static/img/b26logo/booking_logo_retina/22615963add19ac6b6d715a97c8d477e8b95b7ea.png" width="150"/></a>
+      </div>
+</div>
+</nav>
+
+<div class="container-fluid text-center">
+  <form action="{{ url_for('render_user_matching') }}" method="post">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#"></a></p>
+       <img src="https://d15gqlu8dfiqiu.cloudfront.net/s3fs-public/styles/banner/public/images/chapters/Barcelona_travel_massive.jpg" class="img-rounded" alt="Cinque Terre" width="150"
+       height="150">
+       <p>City: Barcelona</p>
+       <p>29th Apr - 1st May</p>
+
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Hack Booking.com</h1>
+      <p>We would like to know your preference to help you find the best match!</p>
+      <hr>
+      <h3>Preference Selection</h3>
+        <div class="well">
+          <label for="usr">The date that you are available for your partner</label>
+          <p></p>
+	           <label class="radio-inline"><input type="radio" name="optradio">29th, Apr</label>
+			   <label class="radio-inline"><input type="radio" name="optradio">30th, Apr</label>
+			   <label class="radio-inline"><input type="radio" name="optradio">1st, May</label>
+        </div>
+        <div class="well">
+          <label for="usr">Preferred Group Size:</label>
+          <p></p>
+    	    <label class="checkbox-inline"><input type="checkbox" value="">2 people</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">3~5 people </label>
+			<label class="checkbox-inline"><input type="checkbox" value="">6+ </label>
+        </div>
+        <div class="well">
+	       <label for="usr">How much budget do you want to spend per day?</label>
+    	   <div class="slidecontainer">
+		       <input type="range" min="1" max="500" value="100" class="slider" id="budgetRange" oninput="myFunction()">
+               <p></p>
+    	       <p id="output">Budget: 100 euros</p>
+           </div>
+        </div>
+        <div>
+        <button type="button" onclick="myFunction()" class="btn btn-success">+Adding more preference</button>
+	    </div>
+        <div class="well">
+             <label for="usr">Special diet</label>
+             <p></p>
+            <label class="checkbox-inline"><input type="checkbox" value="">Vegetarian</label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Halai </label>
+			<label class="checkbox-inline"><input type="checkbox" value="">Kosher </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">No Beef </label>
+		</div>
+        <div class="well">
+             <p></p>
+            <label for="usr">Gender composition</label>
+            <label class="checkbox-inline"><input type="checkbox" value="">All male</label>
+            <label class="checkbox-inline"><input type="checkbox" value="">All female </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">Balanced </label>
+        </div>
+        <div class="well">
+             <p></p>
+            <label for="usr">Preferred method of travel</label>
+            <label class="checkbox-inline"><input type="checkbox" value="">Taxi</label>
+            <label class="checkbox-inline"><input type="checkbox" value="">Walking </label>
+            <label class="checkbox-inline"><input type="checkbox" value="">Public transport</label>
+        </div>
+        <div class="well">
+             <p></p>
+            <label for="usr">Travel style</label>
+            <label class="checkbox-inline"><input type="checkbox" value="">Active</label>
+            <label class="checkbox-inline"><input type="checkbox" value="">Relaxed</label>
+        </div>
+
+
+
+
+<footer class="container-fluid text-center">
+  <button type="button" onclick="myFunction()" class="btn btn-success">Save</button>
+  <!-- <input type="submit" value="submot"> -->
+  <button type="button submit" class="btn btn-info">Next</button>
+</footer>
+</form>
+
+</div>
+
+</div>
+
+
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+function myFunction() {
+   var val = document.getElementById("budgetRange").value //gets the oninput value
+   document.getElementById('output').innerHTML = "Budget: " + val + " euros"//displays this value to the html page
+   console.log(val)
+}
+
+</script>

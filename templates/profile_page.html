@@ -63,11 +63,9 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
       <p><a href="#">Profile</a></p>
-       <img src="https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" class="img-rounded" alt="Cinque Terre" width="150" height="150">
-
-
+       <img src="https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" 		class="img-rounded" alt="Cinque Terre" width="150" height="150">
     </div>
-    <div class="col-sm-8 text-left">
+   <div class="col-sm-8 text-left">
       <h1>Hack Booking.com</h1>
       <p>It's your first time using our "final travel companions" service! Please create your profile</p>
       <hr>
@@ -75,29 +73,28 @@
        <label for="usr">First Name:</label>
 	  <input type="text" class="form-control" id="usr_first" value="usr_first" name="usr_first">
        <label for="usr">Home:</label>
-	  <input type="text" class="form-control" id="usr">
-       <label for="usr">Language:</label>
-       <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose one language
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">English</a></li>
-    <li><a href="#">Spanish</a></li>
-    <li><a href="#">Mandarin</a></li>
-  </ul>
-</div>
-       <label for="usr">Interest:</label>
+	  <input type="text" class="form-control" id="usr_home" value="" name="usr_home">
+          <p></p>
+    <div class="well">
+      <label for="usr">Language:</label>
+         <p></p>
+               <label class="checkbox-inline"><input type="checkbox" value="hindi" name="lang">Hindi</label>
+              <label class="checkbox-inline"><input type="checkbox" value="english" name="lang">English</label>
+              <label class="checkbox-inline"><input type="checkbox" value="chinese" name="lang">Chinese</label>
+              <label class="checkbox-inline"><input type="checkbox" value="russian" name="lang">Russian</label>
+              <label class="checkbox-inline"><input type="checkbox" value="german" name="lang">German</label>
+              <label class="checkbox-inline"><input type="checkbox" value="french" name="lang">French</label>
+      <p></p>
+    </div>
+	<label for="usr">Interest:</label>
 	  <input type="text" class="form-control" id="usr">
        <label for="usr">Bio:</label>
 	  <input type="text" class="form-control" id="usr">
        <label for="usr">Most memorable & experience:</label>
 	  <input type="text" class="form-control input-lg" id="usr">
-<footer class="container-fluid text-center">
-  <button type="button" onclick="myFunction()" class="btn btn-success">Save</button>
+  <button type="button" class="btn btn-success">Save</button>
   <!-- <input type="submit" value="submot"> -->
   <button type="button submit" class="btn btn-info">Next</button>
-  <p id="demo">Debug</p>
-</footer>
 </form>
 </div>
 
@@ -108,23 +105,5 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
-function myFunction() {
-var read_data = document.getElementById("usr_first").value
-document.getElementById("demo").innerHTML = read_data;
 
-var data = [{"Firstname":read_data}];
-var cars = [
-	{ "make":"Porsche", "model":"911S" },
-	{ "make":"Mercedes-Benz", "model":"220SE" },
-	{ "make":"Jaguar","model": "Mark VII" }
-];
-
-$.post("receiver", cars, function(){
-
-	});
-	// stop link reloading the page
- event.preventDefault();
-
-
-}
 </script>

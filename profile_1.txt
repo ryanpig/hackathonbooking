@@ -1,0 +1,1 @@
+{"usr_first": "usr_first", "usr_home": "", "lang": ["chinese"]}

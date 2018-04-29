@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid bg-primary">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="https://s-ec.bstatic.com/static/img/b26logo/booking_logo_retina/22615963add19ac6b6d715a97c8d477e8b95b7ea.png" width="150"/></a>
+      </div>
+</div>
+</nav>
+
+<div class="container-fluid text-center">
+  <form action="{{ url_for('handle_data') }}" method="post">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="#">Profile</a></p>
+       <img src="https://images.pexels.com/photos/160699/girl-dandelion-yellow-flowers-160699.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350" class="img-rounded" alt="Cinque Terre" width="150" height="150">
+
+
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Hack Booking.com</h1>
+      <p>It's your first time using our "final travel companions" service! Please create your profile</p>
+      <hr>
+      <h3>Creating profile</h3>
+       <label for="usr">First Name:</label>
+	  <input type="text" class="form-control" id="usr_first" value="usr_first" name="usr_first">
+       <label for="usr">Home:</label>
+	  <input type="text" class="form-control" id="usr">
+       <label for="usr">Language:</label>
+       <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose one language
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">English</a></li>
+    <li><a href="#">Spanish</a></li>
+    <li><a href="#">Mandarin</a></li>
+  </ul>
+</div>
+       <label for="usr">Interest:</label>
+	  <input type="text" class="form-control" id="usr">
+       <label for="usr">Bio:</label>
+	  <input type="text" class="form-control" id="usr">
+       <label for="usr">Most memorable & experience:</label>
+	  <input type="text" class="form-control input-lg" id="usr">
+<footer class="container-fluid text-center">
+  <button type="button" onclick="myFunction()" class="btn btn-success">Save</button>
+  <!-- <input type="submit" value="submot"> -->
+  <button type="button submit" class="btn btn-info">Next</button>
+  <p id="demo">Debug</p>
+</footer>
+</form>
+</div>
+
+
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+function myFunction() {
+var read_data = document.getElementById("usr_first").value
+document.getElementById("demo").innerHTML = read_data;
+
+var data = [{"Firstname":read_data}];
+var cars = [
+	{ "make":"Porsche", "model":"911S" },
+	{ "make":"Mercedes-Benz", "model":"220SE" },
+	{ "make":"Jaguar","model": "Mark VII" }
+];
+
+$.post("receiver", cars, function(){
+
+	});
+	// stop link reloading the page
+ event.preventDefault();
+
+
+}
+</script>
