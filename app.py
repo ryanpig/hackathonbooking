@@ -11,8 +11,8 @@ def main():
     # return render_template('confirmation.html')
     # return 
 	# flash(message)
-    return render_template("user_matching.html")
-    # return render_user_matching()
+    # return render_template("user_matching.html")
+    return render_user_matching()
 @app.route("/profile_page.html")
 def user_profile():
 	return render_template("profile_page.html")
@@ -105,16 +105,71 @@ def render_user_matching():
 
 	user_list_end ='''		
 			</div>
-			<div class="col-md-4">
-				<div class="well well-lg">
-					<div class="row" id="chat">
-					ok
+		<div class="col-md-4">
+			<div class="row">
+				<div class="well well-lg" style="padding: 5">
+					<div class="row">
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-10" id="chat">
+						</div>
 					</div>
+
+					<form>
+					  	<svg width="400" height="170" id="svg">
+						  	<rect width="100%" height="100%" style="fill:None;stroke-width:0;stroke:None" />
+						</svg>
+					  	<div class="form-group">
+					    <label for="exampleFormControlTextarea1">Example textarea</label>
+					    	<textarea class="form-control" rows="3" id="textarea"></textarea>
+					  	</div>
+					</form>
 				</div>
-			</div	
+			</div>
+			<script>
+				var input = document.getElementById("textarea")
+				input.addEventListener("keyup", function(event) {
+			  // Cancel the default action, if needed
+			  event.preventDefault();
+			  // Number 13 is the "Enter" key on the keyboard
+			  if (event.keyCode === 13) {
+			    // Trigger the button element with a click
+			    console.log("ok")
+			    var message = document.getElementById("textarea").value
+			    input.value = ""
+			    send_message(message)
+			  }
+			});
+			</script>'''
+	groups = '''
+			<div class="row">
+				<div class="well">
+
+					{0}, {1}, {2} is joining.<br>
+					<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn btn-primary btn-block">Join</button>
+				</div>
+			</div>
+				</div>
+			</div>'''
+	groups_tail = '''
 		</div>
-	</div>'''
+	</div>
+</div>
+'''
 	for x in range(len(user_dicts)):
 		output_html += user_specific.format(**user_dicts[x])
 	output_html += user_list_end
+
+	group_names = ["Foodies", "Sightseeing", "Beach4Life"]
+
+	for x in range(len(user_dicts)):
+		output_html += groups.format(group_names[x], user_dicts[x]["Dates"], user_dicts[x]["Name"])
+
+	output_html += groups_tail
 	return output_html
+
+
+
+
